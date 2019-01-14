@@ -12,16 +12,20 @@ html = requests.get('https://de.wikipedia.org/wiki/Liste_deutscher_Zeitungen')
 b = BeautifulSoup(html.text, 'lxml')
 links = []
 
-table = b.find("table", {"id": "tageszeitungen"})
+table = b.find("table", {"id": "wochenzeitungen"})
+#table = b.find("table", {"id": "tageszeitungen"})
 for row in table.findAll("tr"):
     cells = row.findAll("td")
-    if len(cells) == 10:
-        for link in cells[1].findAll('a', href=True):
+    if len(cells) == 9:
+    #if len(cells) == 10:
+        #print(cells[0].string)
+        if cells[0].string=="ü":
+         for link in cells[1].findAll('a', href=True):
             links.append(link['href'])
 
 
 paper_links = ['https://de.wikipedia.org' + i for i in links]
-
+#print(paper_links)
 website_links = []
 
 
