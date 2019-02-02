@@ -24,11 +24,15 @@ Die formale Syntax sieht so aus:
 
 `https://quantenprojects.github.io/news/index.html#(Id[:n],)*`
 
-Wobei `Id` der Identifier aus der oberen Tabelle ist und `n` die Anzahl wie häufig es in den Lostop geworfen wird.
+Wobei `Id` der Identifier aus der oberen Tabelle ist und `n` die Anzahl wie häufig es in den Lostopf geworfen wird.
+
+### Debugging
+Wenn man zwischen `#` und dem `(Id[:n],)*` ein `!` setzt, aktiviert man den Debug-Modus. Dabei wird die automatische Weiterleitung deaktiviert und es wird die Liste der Links aus der zufällig ausgewählt wird, angezeigt.
 
 ### Beispiele
 
-* alle überregionalen Zeitungen und die Magazine (aktuell Standard, wenn nicht angegeben wird)
-https://quantenprojects.github.io/news/index.html#tu,wu,m
+* alle überregionalen Zeitungen (mit 3 fach für reginal) und die Magazine (5 mal), (aktuell Standard, wenn nicht angegeben wird)
+https://quantenprojects.github.io/news/index.html#tu:3,wu,m:5
 * alle überregionalen Wochenzeitungen und die Magazine mit 10-facher Chance https://quantenprojects.github.io/news/index.html#wu,m:10
-* nur regionale Tageszeitungen https://quantenprojects.github.io/news/index.html#tr 
+* nur regionale Tageszeitungen https://quantenprojects.github.io/news/index.html#tr
+* Debug-Modus: alle regionalen Wochenzeitungen und die Magazine mit 10-facher Chance https://quantenprojects.github.io/news/index.html#!tr,m:10

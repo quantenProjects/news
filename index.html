@@ -6,6 +6,7 @@
   </head>
   <body>
     <a id="target" href=""></a>
+    <p id="links_debug"></p>
   </body>
   
     <script language="JavaScript">
@@ -35,7 +36,12 @@
         }
 
         var hash = window.location.hash.substring(1);
-        if (hash.length==0) hash = "wu,tu,m";
+        var debug = false;
+        if (hash[0] == "!") {
+            debug = true;
+            hash = hash.substring(1);
+        }
+        if (hash.length==0) hash = "tu:3,wu,m:5";
         var hash_elements = hash.split(",");
         var links = [];
         for (var i = 0; i<hash_elements.length; ++i) {
@@ -54,10 +60,11 @@
 
         }
 
+        if (debug) document.getElementById("links_debug").innerHTML = links.join("<br>");
         var link = links[Math.floor(Math.random()*links.length)];
         document.getElementById("target").innerHTML = link;
         document.getElementById("target").href = link;
         //window.location = link;
-        window.location.href = link;
+        if (!debug) window.location.href = link;
     </script>
 </html>
